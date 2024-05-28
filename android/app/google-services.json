@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "279501634796",
+    "project_id": "tobeto-clone-app",
+    "storage_bucket": "tobeto-clone-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:279501634796:android:8faa1176131e7ef88679c9",
+        "android_client_info": {
+          "package_name": "com.example.tobetoapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBeIvuUhq7p7MuonzyNjFcjtjEyC4ctM0g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
