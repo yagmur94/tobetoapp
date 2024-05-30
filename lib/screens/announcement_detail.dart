@@ -5,7 +5,7 @@ import 'package:tobetoapp/models/announcement_model.dart';
 class AnnouncementDetailPage extends StatelessWidget {
   final Announcements announcement;
 
-  AnnouncementDetailPage({required this.announcement});
+  const AnnouncementDetailPage({super.key, required this.announcement});
 
   @override
   Widget build(BuildContext context) {
@@ -18,17 +18,17 @@ class AnnouncementDetailPage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
+            const Text(
               'Duyuru Detayları',
               style: TextStyle(
                 fontSize: 24.0,
                 fontWeight: FontWeight.bold,
               ),
             ),
-            SizedBox(height: 16.0),
+            const SizedBox(height: 16.0),
             Text(
               announcement.content!,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 16.0,
               ),
             ),

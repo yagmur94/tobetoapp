@@ -21,6 +21,7 @@ class AuthRepository {
     } on FirebaseAuthException catch (e) {
       print(e);
     }
+    return null;
   }
 
   // create user
@@ -44,6 +45,7 @@ class AuthRepository {
     } on FirebaseAuthException catch (e) {
       print(e);
     }
+    return null;
   }
 
    Future<User?> signInWithGoogle() async {
