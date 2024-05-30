@@ -9,6 +9,7 @@ import 'package:tobetoapp/screens/guest/istanbul_kodluyor.dart';
 import 'package:tobetoapp/screens/guest/katalog_guest.dart';
 import 'package:tobetoapp/screens/guest/kurumlar_icin.dart';
 import 'package:tobetoapp/screens/guest/takvim_anasayfa.dart';
+import 'package:tobetoapp/screens/login_or_signup.dart';
 
 class CommonDrawer extends StatelessWidget {
   const CommonDrawer({super.key});
@@ -178,7 +179,7 @@ class CommonDrawer extends StatelessWidget {
                 ),
                 onPressed: () {
                   Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => const Auth()));
+                      MaterialPageRoute(builder: (context) => const LoginOrSignUp()));
                 },
                 child: const Text(
                   "Giriş Yap",

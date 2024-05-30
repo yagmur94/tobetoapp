@@ -1,5 +1,22 @@
 // ignore_for_file: constant_identifier_names
 
+// Kullanıcı role 
+enum UserRole {
+  student,
+  teacher,
+  admin,
+}
+
+extension UserRoleExtension on UserRole {
+  static UserRole fromName(String name) {
+    return UserRole.values.firstWhere((role) => role.name == name);
+  }
+
+  String toName() {
+    return this.name;
+  }
+}
+
 enum Gender { Erkek, Kadin, BelirtmekIstemiyorum }
 
 extension GenderExtension on Gender {
