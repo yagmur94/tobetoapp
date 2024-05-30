@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
+import 'package:tobetoapp/bloc/announcements/announcement_bloc.dart';
+import 'package:tobetoapp/bloc/announcements/announcement_event.dart';
+import 'package:tobetoapp/bloc/auth/auth_bloc.dart';
+import 'package:tobetoapp/repository/announcements_repo.dart';
+import 'package:tobetoapp/repository/auth_repo.dart';
 import 'package:tobetoapp/screens/homepage.dart';
 import 'package:tobetoapp/widgets/guest/animated_container.dart';
 import 'firebase_options.dart';
@@ -11,7 +17,17 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  runApp(const MyApp());
+  runApp(MultiBlocProvider(
+    providers: [
+      BlocProvider(
+        create: (context) => AuthBloc(AuthRepository()),
+      ),
+      BlocProvider(
+          create: (context) => AnnouncementBloc(AnnouncementRepository())
+            ..add(LoadAnnouncements()))
+    ],
+    child: MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {

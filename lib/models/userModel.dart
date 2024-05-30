@@ -25,6 +25,7 @@ class UserModel {
   List<ProjectAwards>? projectsAwards;
   List<SocialMedia>? socialMedia;
   List<Languages>? languages;
+  UserRole? role;
 
   UserModel({
     this.profilePhotoUrl,
@@ -51,6 +52,7 @@ class UserModel {
     this.projectsAwards,
     this.socialMedia,
     this.languages,
+    this.role,
   });
 
   Map<String, dynamic> toMap() {
@@ -79,6 +81,7 @@ class UserModel {
       'projectsAwards': projectsAwards?.map((e) => e.toMap()).toList(),
       'socialMedia': socialMedia?.map((item) => item.toMap()).toList(),
       'languages': languages?.map((item) => item.toMap()).toList(),
+      'role': role?.name,
     };
   }
 
@@ -137,6 +140,7 @@ class UserModel {
           ? List<Languages>.from(map['languages'].map(
               (item) => Languages.fromMap(Map<String, dynamic>.from(item))))
           : null,
+      role: map['role'] != null ? UserRoleExtension.fromName(map['role']) : null,
     );
   }
 }
