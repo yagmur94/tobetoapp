@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:provider/provider.dart';
 import 'package:tobetoapp/screens/homepage.dart';
-import 'package:tobetoapp/screens/mainpage.dart';
 import 'package:tobetoapp/widgets/guest/animated_container.dart';
 import 'firebase_options.dart';
 
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized(); // Bağlayıcıyı başlatmak için bu kod eksikti
+  WidgetsFlutterBinding
+      .ensureInitialized(); // Bağlayıcıyı başlatmak için bu kod eksikti
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
