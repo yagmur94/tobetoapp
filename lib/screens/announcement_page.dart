@@ -17,11 +17,11 @@ class AnnouncementsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Announcements'),
+        title: const Text('Announcements'),
         actions: role == 'admin' || role == 'teacher'
             ? [
                 IconButton(
-                  icon: Icon(Icons.add),
+                  icon: const Icon(Icons.add),
                   onPressed: () {
                     Navigator.push(
                       context,
@@ -37,20 +37,20 @@ class AnnouncementsPage extends StatelessWidget {
         listener: (context, state) {
           if (state is AnnouncementOperationSuccess) {
             ScaffoldMessenger.of(context)
-                .showSnackBar(SnackBar(content: Text('Operation Successful')));
+                .showSnackBar(const SnackBar(content: Text('Operation Successful')));
           } else if (state is AnnouncementOperationFailure) {
             ScaffoldMessenger.of(context)
-                .showSnackBar(SnackBar(content: Text('Operation Failed')));
+                .showSnackBar(const SnackBar(content: Text('Operation Failed')));
           }
         },
         builder: (context, state) {
           print("Current state: $state"); // Durumu kontrol etmek için
           if (state is AnnouncementsLoading) {
-            return Center(child: CircularProgressIndicator());
+            return const Center(child: CircularProgressIndicator());
           } else if (state is AnnouncementsLoaded) {
             print("Announcements loaded: ${state.announcements}");
             if (state.announcements.isEmpty) {
-              return Center(child: Text('Duyuru bulunmamaktadır'));
+              return const Center(child: Text('Duyuru bulunmamaktadır'));
             } else {
               final reversedAnnouncements = state.announcements.reversed.toList();
               return ListView.builder(
@@ -79,29 +79,29 @@ class AnnouncementsPage extends StatelessWidget {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(
+                            const Text(
                               'Duyuru',
                               style: TextStyle(
                                 color: Colors.green,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
-                            SizedBox(height: 8.0),
+                            const SizedBox(height: 8.0),
                             Text(
                               announcement.title!,
-                              style: TextStyle(
+                              style: const TextStyle(
                                 fontSize: 18.0,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
-                            SizedBox(height: 8.0),
+                            const SizedBox(height: 8.0),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Row(
                                   children: [
-                                    Icon(Icons.calendar_today, size: 16.0),
-                                    SizedBox(width: 4.0),
+                                    const Icon(Icons.calendar_today, size: 16.0),
+                                    const SizedBox(width: 4.0),
                                     Text(formattedDate),
                                   ],
                                 ),
@@ -116,11 +116,11 @@ class AnnouncementsPage extends StatelessWidget {
                                       ),
                                     );
                                   },
-                                  child: Text('Detaylar'),
+                                  child: const Text('Detaylar'),
                                 ),
                                 if (role == 'admin' || role == 'teacher')
                                   IconButton(
-                                    icon: Icon(Icons.delete),
+                                    icon: const Icon(Icons.delete),
                                     onPressed: () {
                                       BlocProvider.of<AnnouncementBloc>(context)
                                           .add(DeleteAnnouncement(announcement.id!));
@@ -138,10 +138,10 @@ class AnnouncementsPage extends StatelessWidget {
             }
           } else if (state is AnnouncementOperationFailure) {
             print("Error: ${state.error}");
-            return Center(child: Text('Failed to load announcements'));
+            return const Center(child: Text('Failed to load announcements'));
           } else {
             print("Unknown state: $state");
-            return Center(child: Text('Failed to load announcements'));
+            return const Center(child: Text('Failed to load announcements'));
           }
         },
       ),

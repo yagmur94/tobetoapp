@@ -16,7 +16,7 @@ class AddAnnouncementPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Add Announcement'),
+        title: const Text('Add Announcement'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -24,17 +24,17 @@ class AddAnnouncementPage extends StatelessWidget {
           children: [
             TextField(
               controller: _titleController,
-              decoration: InputDecoration(labelText: 'Title'),
+              decoration: const InputDecoration(labelText: 'Title'),
             ),
             TextField(
               controller: _contentController,
-              decoration: InputDecoration(labelText: 'Content'),
+              decoration: const InputDecoration(labelText: 'Content'),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
                 final announcement = Announcements(
-                  id: Uuid().v4(),
+                  id: const Uuid().v4(),
                   title: _titleController.text,
                   content: _contentController.text,
                   createdAt: DateTime.now(),
@@ -43,7 +43,7 @@ class AddAnnouncementPage extends StatelessWidget {
                     .add(AddAnnouncement(announcement));
                 Navigator.pop(context);
               },
-              child: Text('Add Announcement'),
+              child: const Text('Add Announcement'),
             ),
           ],
         ),
