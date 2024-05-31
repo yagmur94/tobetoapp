@@ -8,12 +8,12 @@ import 'package:tobetoapp/bloc/auth/auth_bloc.dart';
 import 'package:tobetoapp/repository/announcements_repo.dart';
 import 'package:tobetoapp/repository/auth_repo.dart';
 import 'package:tobetoapp/screens/homepage.dart';
-import 'package:tobetoapp/screens/mainpage.dart';
 import 'package:tobetoapp/widgets/guest/animated_container.dart';
 import 'firebase_options.dart';
 
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized(); // Bağlayıcıyı başlatmak için bu kod eksikti
+  WidgetsFlutterBinding
+      .ensureInitialized(); // Bağlayıcıyı başlatmak için bu kod eksikti
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );

@@ -5,6 +5,7 @@ import 'package:tobetoapp/widgets/common_app_bar.dart';
 import 'package:tobetoapp/widgets/common_footer.dart';
 import 'package:tobetoapp/widgets/guest/common_drawer.dart';
 import 'package:tobetoapp/widgets/guest/controls_overlay.dart';
+import 'package:tobetoapp/widgets/guest/ekip_card.dart';
 import 'package:tobetoapp/widgets/guest/tobeto_farki.dart';
 import 'package:tobetoapp/widgets/validation_video_controller.dart';
 import 'package:url_launcher/url_launcher_string.dart';
@@ -213,14 +214,62 @@ class _HakkimizdaState extends State<Hakkimizda> {
                             title: "TOBETO FARKI\n NEDİR?"),
                       ),
                     ),
-                    const SizedBox(height: 40),
-                    const Text(
-                      "EKİBİMİZ",
-                      style:
-                          TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+                    Container(
+                      padding: const EdgeInsets.all(30),
+                      margin: const EdgeInsets.symmetric(vertical: 30),
+                      child: const Column(
+                        children: [
+                          Text(
+                            "EKİBİMİZ",
+                            style: TextStyle(
+                                fontSize: 28,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.black),
+                          ),
+                          SizedBox(height: 20),
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              EkipCard(
+                                imagePath: "assets/ekip/elif_kilic.jpeg",
+                                name: "Elif Kılıç",
+                                title: "Kurucu Direktör",
+                                linkedInUrl:
+                                    'https://www.linkedin.com/in/eliftugtan/',
+                              ),
+                              EkipCard(
+                                imagePath: "assets/ekip/kader_yavuz.jpg",
+                                name: "Kader Yavuz",
+                                title: "Eğitim ve Proje Koordinatörü",
+                                linkedInUrl:
+                                    'https://www.linkedin.com/in/kader-yavuz/',
+                              ),
+                              EkipCard(
+                                imagePath: "assets/ekip/pelin_batir.png",
+                                name: "Pelin Batır",
+                                title: "İş Geliştirme ve Yöneticisi",
+                                linkedInUrl: '',
+                              ),
+                              EkipCard(
+                                imagePath: "assets/ekip/gurkan_ilisen.jfif",
+                                name: "Gürkan İlişen",
+                                title:
+                                    "Eğitim Teknolojileri ve Platform Sorumlusu",
+                                linkedInUrl:
+                                    'https://www.linkedin.com/in/gürkanilişen/',
+                              ),
+                              EkipCard(
+                                imagePath: "assets/ekip/ali_seyhan.jpg",
+                                name: "Ali Seyhan",
+                                title: "Operasyon Uzman Yardımcısı",
+                                linkedInUrl:
+                                    'https://tr.linkedin.com/in/aliseyhnn',
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
                     ),
-                    const SizedBox(height: 20),
-                    //const EkipList(),
                     const SizedBox(height: 30),
                     Container(
                       padding: const EdgeInsets.all(20),

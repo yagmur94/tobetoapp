@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class EkipCard extends StatelessWidget {
@@ -24,32 +23,29 @@ class EkipCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(20.0),
+    return InkWell(
+      onTap: () => _launchUrl(linkedInUrl),
       child: Container(
-        //margin: const EdgeInsets.symmetric(vertical: 10),
+        margin: const EdgeInsets.symmetric(vertical: 10),
         padding: const EdgeInsets.all(20),
+        width: double.infinity,
+        constraints: const BoxConstraints(minHeight: 200),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
           color: Colors.white,
           border: Border.all(color: Colors.grey, width: 2),
         ),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                CircleAvatar(
-                  radius: 40,
-                  backgroundImage: AssetImage(imagePath),
-                ),
-              ],
+            CircleAvatar(
+              radius: 40,
+              backgroundImage: AssetImage(imagePath),
             ),
             const SizedBox(height: 10),
             Text(
               name,
-              style: const TextStyle(fontSize: 18),
+              style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 5),
@@ -58,16 +54,10 @@ class EkipCard extends StatelessWidget {
               style: const TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.w400,
+                color: Colors.grey,
               ),
               textAlign: TextAlign.center,
             ),
-            const SizedBox(height: 20),
-            IconButton(
-              onPressed: () => _launchUrl(linkedInUrl),
-              icon: const FaIcon(FontAwesomeIcons.linkedin),
-              color: const Color.fromARGB(255, 163, 77, 233),
-              iconSize: 10,
-            )
           ],
         ),
       ),
@@ -75,6 +65,8 @@ class EkipCard extends StatelessWidget {
   }
 }
 
+
+/*
 class EkipList extends StatelessWidget {
   const EkipList({super.key});
 
@@ -122,3 +114,4 @@ class EkipList extends StatelessWidget {
     );
   }
 }
+*/
