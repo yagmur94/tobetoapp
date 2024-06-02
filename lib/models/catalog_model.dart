@@ -9,6 +9,7 @@ class Catalog {
   String certificationStatus;
   String imageUrl;
   double rating;
+  bool isFree;
 
   Catalog({
     required this.id,
@@ -21,6 +22,7 @@ class Catalog {
     required this.certificationStatus,
     required this.imageUrl,
     required this.rating,
+    required this.isFree
   });
 
   factory Catalog.fromMap(Map<String, dynamic> map) {
@@ -35,6 +37,7 @@ class Catalog {
       certificationStatus: map['certificationStatus'] ?? '',
       imageUrl: map['imageUrl'] ?? '', 
       rating: map['rating'] ?? 0.0, 
+      isFree: map['isFree'] ?? false,
     );
   }
 }
